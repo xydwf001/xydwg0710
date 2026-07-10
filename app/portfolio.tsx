@@ -6,12 +6,15 @@ type Lang = "zh" | "en";
 type Theme = "rose" | "sage" | "sky";
 
 const images = [
-  { src: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=1400&q=88", type: "portrait", zh: "逆光之后", en: "After the Light", meta: "Portrait · 2025" },
-  { src: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1400&q=88", type: "portrait", zh: "松弛时刻", en: "An Unhurried Moment", meta: "Portrait · 2025" },
-  { src: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1400&q=88", type: "commercial", zh: "春日肖像", en: "Spring Portrait", meta: "Campaign · 2024" },
-  { src: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1400&q=88", type: "portrait", zh: "无声对白", en: "Quiet Dialogue", meta: "Portrait · 2024" },
-  { src: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=1400&q=88", type: "event", zh: "午后侧影", en: "Afternoon Profile", meta: "Follow · 2025" },
-  { src: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=1400&q=88", type: "commercial", zh: "城市温度", en: "City Warmth", meta: "Commercial · 2025" },
+  { src: "/portfolio/RX2_01.jpg", type: "portrait", zh: "玻璃后的呼吸", en: "Breath Behind Glass", meta: "Portrait · 2025" },
+  { src: "/portfolio/RX2_02.jpg", type: "portrait", zh: "雨天的蓝", en: "Blue in the Rain", meta: "Portrait · 2025" },
+  { src: "/portfolio/RX2_03.jpg", type: "portrait", zh: "北江的红花", en: "A Red Flower", meta: "Portrait · 2025" },
+  { src: "/portfolio/RX2_04.jpg", type: "event", zh: "云层之上", en: "Above the Clouds", meta: "Follow · 2024" },
+  { src: "/portfolio/RX2_05.jpg", type: "event", zh: "绿野尽头", en: "End of the Green", meta: "Follow · 2024" },
+  { src: "/portfolio/RX2_06.jpg", type: "event", zh: "山的背面", en: "Beyond the Ridge", meta: "Follow · 2024" },
+  { src: "/portfolio/RX2_07.jpg", type: "commercial", zh: "圆镜里的夏天", en: "Summer in a Mirror", meta: "Commercial · 2025" },
+  { src: "/portfolio/RX2_08.jpg", type: "commercial", zh: "胶片记忆", en: "Film Memory", meta: "Commercial · 2025" },
+  { src: "/portfolio/RX2_09.jpg", type: "commercial", zh: "炫光样本", en: "A Study in Glow", meta: "Commercial · 2025" },
 ];
 
 const copy = {
@@ -113,7 +116,7 @@ export default function Portfolio() {
         <div className="sectionHead"><h2>{c.selected}</h2><div><button onClick={() => scrollFilm(-1)} aria-label="向前浏览">←</button><button onClick={() => scrollFilm(1)} aria-label="向后浏览">→</button></div></div>
         <div className="film" ref={filmRef}>
           <div className="filmLabel"><b>KODAK</b><span>{c.film}</span></div>
-          {images.slice(0, 5).map((item, i) => <figure key={item.src}><span className="sprockets" /><img src={item.src} alt={`${lang === "zh" ? item.zh : item.en}摄影作品`} /><figcaption><b>{String(i + 1).padStart(2, "0")}</b><span>{lang === "zh" ? item.zh : item.en}</span></figcaption></figure>)}
+          {images.slice(0, 6).map((item, i) => <figure key={item.src}><span className="sprockets" /><img src={item.src} alt={`${lang === "zh" ? item.zh : item.en}摄影作品`} /><figcaption><b>{String(i + 1).padStart(2, "0")}</b><span>{lang === "zh" ? item.zh : item.en}</span></figcaption></figure>)}
         </div>
       </section>
 

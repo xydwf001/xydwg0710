@@ -15,6 +15,7 @@ let html = await response.text();
 html = html
   .replaceAll('href="/assets/', 'href="./assets/')
   .replaceAll('src="/assets/', 'src="./assets/')
+  .replaceAll('src="/portfolio/', 'src="./portfolio/')
   .replaceAll('import("/assets/', 'import("./assets/')
   .replaceAll('href="/favicon.svg"', 'href="./favicon.svg"')
   .replaceAll('href="/resume-template.txt"', 'href="./resume-template.txt"');
