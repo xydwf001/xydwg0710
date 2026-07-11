@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { readFile } from "node:fs/promises";
+import { access, readFile } from "node:fs/promises";
 import test from "node:test";
 
 async function render() {
@@ -52,4 +52,9 @@ test("builds a GitHub Pages client without server component requests", async () 
   assert.match(html, /\.\/assets\/[^"']+\.js/);
   assert.doesNotMatch(html, /\.rsc|_rsc/);
   assert.match(assets, /base:\s*"\.\/"/);
+});
+
+test("keeps public media out of the Sites server module directory", async () => {
+  await assert.rejects(access(new URL("../dist/server/photos", import.meta.url)));
+  await assert.rejects(access(new URL("../dist/server/favicon.svg", import.meta.url)));
 });
